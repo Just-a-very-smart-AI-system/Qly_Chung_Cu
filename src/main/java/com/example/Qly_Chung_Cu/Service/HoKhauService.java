@@ -45,7 +45,7 @@ public class HoKhauService {
         hoKhau.setToDanCu(toDanCu);
         return hoKhauRepository.save(hoKhau);
     }
-    public HoKhau Uodate(HoKhauRequest request){
-        HoKhau hoKhau hoKhauMapper.toHoKhau()sdfhkshfkjsdhfkj
-    }
+//    public HoKhau Uodate(HoKhauRequest request){
+//        HoKhau hoKhau hoKhauMapper.toHoKhau()
+//    }
 }

@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ToDanCuRepository extends JpaRepository<ToDanCu, Integer> {
+    Iterable<ToDanCu> findAllByToTruong(String to_Truong);
+    Iterable<ToDanCu> findAllByToPho(String to_Pho);
 }

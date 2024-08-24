@@ -16,4 +16,11 @@ public class TDCService {
     public ToDanCu findById(Integer Id){
         return toDanCuRepository.findById(Id).orElseThrow(()-> new RuntimeException("Không có tổ dân cư với Id này!"));
     }
+
+    public Iterable<ToDanCu> findByToTruong(String to_truong){
+        return toDanCuRepository.findAllByToTruong(to_truong);
+    }
+    public Iterable<ToDanCu> findByToPho(String to_pho){
+        return toDanCuRepository.findAllByToPho(to_pho);
+    }
 }
