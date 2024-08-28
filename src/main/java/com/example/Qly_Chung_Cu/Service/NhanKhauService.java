@@ -79,4 +79,10 @@ public class NhanKhauService {
 
         return nhanKhauRepository.save(nhanKhau);
     }
+    public Boolean isChoHo(int id){
+        NhanKhau nhanKhau = findById(id);
+        HoKhau hoKhau = nhanKhau.getHoKhau();
+
+        return hoKhau.getChuHo() == nhanKhau.getHoTen();
+    }
 }

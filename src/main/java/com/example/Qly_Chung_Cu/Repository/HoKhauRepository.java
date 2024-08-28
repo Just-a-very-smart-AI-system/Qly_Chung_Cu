@@ -16,4 +16,6 @@ public interface HoKhauRepository extends JpaRepository<HoKhau, Integer> {
 
     @Query(value = "select * from ho_khau where quan_huyen = :x", nativeQuery = true)
     Iterable<HoKhau> findByQuanHuyen(@Param("x") String x);
+    @Query(value = "SELECT EXISTS(SELECT 1 FROM ho_khau WHERE chu_ho = :chuHo)", nativeQuery = true)
+    Boolean existsByChuHo(String chuHo);
 }

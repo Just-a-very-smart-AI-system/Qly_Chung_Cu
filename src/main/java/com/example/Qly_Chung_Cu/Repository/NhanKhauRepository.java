@@ -24,4 +24,5 @@ public interface NhanKhauRepository extends JpaRepository<NhanKhau, Integer> {
 
     @Query(value = "select * from nhan_khau where que_quan = :q" ,nativeQuery = true)
     Iterable<NhanKhau> findByQueQuan(String q);
+
 }

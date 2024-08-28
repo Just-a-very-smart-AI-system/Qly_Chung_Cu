@@ -2,6 +2,7 @@ package com.example.Qly_Chung_Cu.Service;
 
 import com.example.Qly_Chung_Cu.DTO.Request.HoKhauRequest;
 import com.example.Qly_Chung_Cu.Entity.HoKhau;
+import com.example.Qly_Chung_Cu.Entity.NhanKhau;
 import com.example.Qly_Chung_Cu.Entity.ToDanCu;
 import com.example.Qly_Chung_Cu.Mapper.HoKhauMapper;
 import com.example.Qly_Chung_Cu.Repository.HoKhauRepository;
@@ -18,6 +19,8 @@ public class HoKhauService {
     private HoKhauMapper hoKhauMapper;
     @Autowired
     private TDCService tdcService;
+    @Autowired
+    private NhanKhauService nhanKhauService;
     public Iterable<HoKhau> getAll(){
         return hoKhauRepository.findAll();
     }
@@ -47,6 +50,18 @@ public class HoKhauService {
     }
     public void Delete(Integer id){
         hoKhauRepository.deleteById(id);
+    }
+    public HoKhau update_ChoHo(int IdNK, int IdHK){
+        NhanKhau nhanKhau = nhanKhauService.findById(IdNK);
+
+        HoKhau hoKhau = findById(IdHK);
+
+        hoKhau.setChuHo(nhanKhau.getHoTen());
+
+        return hoKhauRepository.save(hoKhau);
+    }
+    public Boolean checkChuHoExists(String chuHo) {
+        return hoKhauRepository.existsByChuHo(chuHo);
     }
 
 }
