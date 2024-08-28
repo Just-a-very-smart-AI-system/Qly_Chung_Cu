@@ -1,4 +1,5 @@
 package com.example.Qly_Chung_Cu.Service;
+import com.example.Qly_Chung_Cu.DTO.Request.CCCD;
 import com.example.Qly_Chung_Cu.DTO.Request.NhanKhauRequest;
 import com.example.Qly_Chung_Cu.Entity.HoKhau;
 import com.example.Qly_Chung_Cu.Entity.NhanKhau;
@@ -56,5 +57,26 @@ public class NhanKhauService {
         newNhanKhau.setHoKhau(hoKhau);
 
         return nhanKhauRepository.save(newNhanKhau);
+    }
+
+    public void delete(int id){
+        nhanKhauRepository.deleteById(id);
+    }
+    public NhanKhau updateHoten(int id, String x){
+        NhanKhau nhanKhau = findById(id);
+
+        nhanKhau.setHoTen(x);
+        return nhanKhauRepository.save(nhanKhau);
+    }
+    public NhanKhau updateSo_cccd(int id, CCCD cccd){
+        NhanKhau nhanKhau = findById(id);
+
+        nhanKhau.setSoCccd(cccd.getSoCccd());
+        nhanKhau.setQueQuan(cccd.getQueQuan());
+        nhanKhau.setNgayCapCccd(cccd.getNgayCapCccd());
+        nhanKhau.setNgayHetHanCccd(cccd.getNgayHetHanCccd());
+        nhanKhau.setDanToc(cccd.getDanToc());
+
+        return nhanKhauRepository.save(nhanKhau);
     }
 }

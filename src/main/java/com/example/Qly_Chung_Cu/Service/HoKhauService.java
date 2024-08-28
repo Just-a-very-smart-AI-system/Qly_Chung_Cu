@@ -45,7 +45,8 @@ public class HoKhauService {
         hoKhau.setToDanCu(toDanCu);
         return hoKhauRepository.save(hoKhau);
     }
-//    public HoKhau Uodate(HoKhauRequest request){
-//        HoKhau hoKhau hoKhauMapper.toHoKhau()
-//    }
+    public void Delete(Integer id){
+        hoKhauRepository.deleteById(id);
+    }
+
 }

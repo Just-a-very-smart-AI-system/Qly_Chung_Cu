@@ -1,9 +1,6 @@
 package com.example.Qly_Chung_Cu.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +13,7 @@ import lombok.NoArgsConstructor;
 public class ToDanCu {
     @Id
     @Column(name = "ma_tdc", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer maTdc;
 
     @Column(name = "so_tang")
